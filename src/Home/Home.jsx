@@ -1,9 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Demo from "../components/AddProductModel";
 
 function Home() {
-    const navigate=useNavigate()
+    
     
 
   return (
