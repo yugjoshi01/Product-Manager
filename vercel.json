@@ -3,6 +3,11 @@
       {
         "source": "/home",
         "destination": "https://product-manager-r2jr.vercel.app"
+      },
+      {
+        "source": "/register",
+        "destination": "https://product-manager-r2jr.vercel.app"
       }
     ]
   }
+ 
