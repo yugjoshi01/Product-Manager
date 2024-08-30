@@ -10,7 +10,6 @@ function Edit({ product, onProductUpdate}) {
   const [opened, { open, close }] = useDisclosure(false);
   const [loading, setLoading] = useState(false);
   const [current, setCurrent] = useState(1);
-  console.log("product",product)
   const [data, setData] = useState({
     name: product.name,
     price: product.price,

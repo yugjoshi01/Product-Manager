@@ -11,9 +11,9 @@ function ProductDetails({ productList }) {
   const [product, setProduct] = useState([]);
   const [totalProducts, setTotalProducts] = useState(0); 
 
+  console.log(current ,"eofjwiuefuiwe")
   const renderProductList = async () => {
     setLoading(true);
-    console.log("localStorage.getItem",localStorage.getItem("token"))
     try {
       setLoading(true);
       let res = await axios.get(
@@ -22,7 +22,6 @@ function ProductDetails({ productList }) {
           "Authorization"
         ] = `Bearer ${localStorage.getItem("token")}`)
       );
-      console.log("response",res)
       setProduct(res.data.data.product);
       setTotalProducts(res.data.data.totalCount);
       setLoading(false);
@@ -32,10 +31,13 @@ function ProductDetails({ productList }) {
     }
   };
  
-  useEffect(() => {
-    renderProductList(current);
-  }, [current]);
+  useEffect(()=>{
+    renderProductList();
+  },[])
 
+  useEffect(() => {
+    renderProductList();
+  }, [current]);
   
   const handleProductUpdate = (updatedProduct) => {
     if (updatedProduct) {
