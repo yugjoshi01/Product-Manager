@@ -9,7 +9,7 @@ function Registration() {
     email: "",
     password: "",
   });
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -54,7 +54,7 @@ function Registration() {
 
         if (response.status === 201) {
           setSuccess("Registration is successfull!");
-          navigate("/")
+          navigate("/");
           setErr(null);
         }
       } catch (error) {
@@ -81,11 +81,24 @@ function Registration() {
   }, [formData.email]);
 
   useEffect(() => {
-    if (formData.password !== "") {
-      setPasswordError("");
-    } else {
-      setPasswordError("password is required!");
-    }
+    const validatePassword = () => {
+      const containsUppercase = /[A-Z]/.test(formData.password);
+      const isLongEnough = formData.password.length >= 8;
+
+      if (!formData.password) {
+        setPasswordError("Password is required!");
+      } else if (!containsUppercase) {
+        setPasswordError(
+          "Password must contain at least one uppercase letter!"
+        );
+      } else if (!isLongEnough) {
+        setPasswordError("Password must be at least 8 characters long!");
+      } else {
+        setPasswordError("");
+      }
+    };
+
+    validatePassword();
   }, [formData.password]);
 
   return (
