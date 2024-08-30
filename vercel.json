@@ -1,7 +1,7 @@
 {
     "rewrites": [
       {
-        "source": "/api/https://product-manager-r2jr.vercel.app/home",
+        "source": "/home",
         "destination": "https://product-manager-r2jr.vercel.app/home"
       }
     ]
